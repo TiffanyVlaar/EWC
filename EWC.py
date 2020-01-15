@@ -172,6 +172,8 @@ for epoch in range(num_epochs):
 RES1 = np.vstack(RES1)
 RES2 = np.vstack(RES2)
 
+plt.figure(figsize=[8,5]) # Increase the size of the plots
+plt.rcParams.update({'font.size': 18})
 
 plt.plot(RES1[:,0],RES1[:,2],label="Task A")
 plt.plot(RES2[:,0],RES2[:,2],label="Task B")
@@ -313,5 +315,6 @@ plt.xlim([0,100])
 plt.xlabel("Epoch")
 plt.ylabel("Test Accuracy")
 plt.legend()
+plt.tight_layout()
 plt.savefig("EWC.pdf")
 
