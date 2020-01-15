@@ -180,6 +180,7 @@ plt.plot(RES2[:,0],RES2[:,2],label="Task B")
 plt.xlabel("Epoch")
 plt.ylabel("Test Accuracy")
 plt.legend()
+plt.tight_layout()
 plt.savefig("Original.pdf")
 
 # # EWC
@@ -308,8 +309,8 @@ plt.figure(figsize=[8,5]) # Increase the size of the plots
 plt.rcParams.update({'font.size': 18})
 plt.plot(RES1[:,0],RES1[:,2],label="Task A")
 plt.plot(RES2[:,0],RES2[:,2],label="Task B")
-plt.plot(RES1_EWC[:,0],RES1_EWC[:,2],label="Task A EWC $\lambda$ = 40")
-plt.plot(RES2_EWC[:,0],RES2_EWC[:,2],label="Task B EWC $\lambda$ = 40")
+plt.plot(RES1_EWC[:,0],RES1_EWC[:,2],label="Task A EWC") # $\lambda$ = 100")
+plt.plot(RES2_EWC[:,0],RES2_EWC[:,2],label="Task B EWC") # $\lambda$ = 100")
 plt.ylim([80,100])
 plt.xlim([0,100])
 plt.xlabel("Epoch")
