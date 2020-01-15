@@ -233,12 +233,12 @@ dataloader_train1_full = DataLoader(mnist_train1, batch_size=32,shuffle=True)
 Fisher = []
 loglik = []
 for i,data in enumerate(dataloader_train1_full):
-    x=data[0].view(32,-1)
-    y=data[1] 
+    x=data[0].view(32,-1).double().cuda()
+    y=data[1].long().cuda()
     x = Variable(x) 
     y = Variable(y)
     loglik.append(F.log_softmax(NN_EWC(x), dim=1)[range(32),y.data])
-    if len(loglik) >= 4096//32:
+    if len(loglik) >= 2048//32:
         break
 
 loglik = torch.cat(loglik).unbind()
